@@ -8,7 +8,7 @@ const TodoList = ({ todos, onTodoClick }) => (
     <input className="toggle-all" type="checkbox"/>
     <label htmlFor="toggle-all">Mark all as complete</label>
     <ul className="todo-list">
-      {todos.map(todo =>
+      {todos && todos.map(todo =>
         <Todo
           key={todo.id}
           {...todo}
