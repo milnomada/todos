@@ -6,7 +6,6 @@ import VisibleTodoList from '../containers/VisibleTodoList'
 const App = ({params}) => (
   <section className="todoapp">
   	<AddTodo />
-			
     <VisibleTodoList filter={params.filter || 'SHOW_ALL'} />
     <Footer />
   </section>

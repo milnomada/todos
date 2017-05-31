@@ -6,7 +6,7 @@ const todo = (state = {}, action) => {
         text: action.text,
         completed: false
       }
-    case 'TOGGLE_TODO':
+    case 'TOGGLE_TODO': {
       if (state.id !== action.id) {
         return state
       }
@@ -26,6 +26,9 @@ const todo = (state = {}, action) => {
       // returns a copy of the state object updated
       
       return state.filter(todo => todo.completed === false)
+    }
+
+
 
     default:
       return state
@@ -33,6 +36,7 @@ const todo = (state = {}, action) => {
 }
 
 const todos = (state = [], action) => {
+  console.log(state, action);
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -45,6 +49,11 @@ const todos = (state = [], action) => {
       )
     case 'CLEAR_TODOS':
       return state.filter(todo => todo.completed === false)
+
+    case 'DELETE_TODO':
+      return state.filter(todo =>
+        todo.id !== action.id
+      )
 
     case 'COUNT_TODOS':
       return state.reduce( (count, todo) => todo.completed ? count + 1 : count,

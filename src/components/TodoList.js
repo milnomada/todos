@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ( { todos , actions}) => (
   <section className="main">
 
     <input className="toggle-all" type="checkbox"/>
@@ -11,8 +11,9 @@ const TodoList = ({ todos, onTodoClick }) => (
       {todos && todos.map(todo =>
         <Todo
           key={todo.id}
+          onClick={() => actions.onTodoClick(todo.id)}
+          removeClick={() => actions.onTodoDestroyClick(todo.id)}
           {...todo}
-          onClick={() => onTodoClick(todo.id)}
         />
       )}
     </ul>
@@ -25,7 +26,7 @@ TodoList.propTypes = {
     completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
-  onTodoClick: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 }
 
 export default TodoList

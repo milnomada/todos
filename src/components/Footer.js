@@ -4,19 +4,18 @@ import { connect } from 'react-redux'
 import FilterLink from '../containers/FilterLink'
 import ButtonLink from '../containers/ButtonLink'
 
-// export default class Footer extends Component {
 
 const mapStateToProps = state => {
   return { todos: state.todos }
 }
 
-const mapDispatchToProps = dispatch => {
+/*const mapDispatchToProps = dispatch => {
   return {
     destroyTodo : () => dispatch({
       type : 'DESTROY_TODO'
     })
   }
-}
+}*/
 
 const Footer = (state, dispatch) => (
   <footer className="footer">
@@ -44,5 +43,5 @@ const Footer = (state, dispatch) => (
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {}
 )(Footer)

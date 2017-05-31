@@ -38,3 +38,10 @@ export const countTodos = () => {
     type: 'COUNT_TODOS'
   }
 }
+
+export const deleteTodo = (id) => {
+  return {
+    type: 'DELETE_TODO',
+    id
+  }
+}
